@@ -1,29 +1,28 @@
-name: CI
+name: JaccardSimiliarity CI
 
 on:
   push:
     branches:
-      - jiazhao-countBased
+      - jash-jaccardsimiliarity
   pull_request:
     branches:
-      - jiazhao-countBased
+      - jash-jaccardsimiliarity
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-    - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
 
-    - name: Install dependencies
-      run: pip install pyspark
+      - name: Install dependencies
+        run: pip install pyspark 
 
-    - name: Run code
-      run: python CountBased.ipynb
+      - name: Run Python script
+        run: python JaccardSimilarity.py
