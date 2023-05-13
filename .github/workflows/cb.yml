@@ -25,4 +25,4 @@ jobs:
         run: pip install pyspark 
 
       - name: Run Python script
-        run: python CountBased.py
+        run: python CountBased.ipynb
