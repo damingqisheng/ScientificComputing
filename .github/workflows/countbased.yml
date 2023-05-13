@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [ jiazhao-countBased ]
+    branches:
+      - jiazhao-countBased
   pull_request:
-    branches: [ jiazhao-countBased ]
+    branches:
+      - jiazhao-countBased
 
 jobs:
   build:
@@ -15,14 +17,13 @@ jobs:
     - name: Checkout repo
     - uses: actions/checkout@v2
 
-    - name: Set up Python 3.8
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.x
 
     - name: Install dependencies
-      run: 
-        pip install pyspark
+      run: pip install pyspark
 
     - name: Run code
       run: python CountBased.ipynb
